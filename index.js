@@ -1,10 +1,20 @@
-const express = require("express");
-const app = express();
-const product = require("./api/product");
+// const express = require("express");
+// const app = express();
 
-app.use(express.json({ extended: false }));
+// app.use(express.json({ extended: false }));
 
 // app.use("/api/product", product);
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+
+
 
 const handleRecommendation=(triggers,transcription)=>{
     const recommendationScore=triggers?.map((i)=>{
@@ -37,18 +47,10 @@ app.post('/chat-assistant', (req, res) => {
       res.send(handleRecommendation(triggers,transcription));
 });
 
-app.post('/', (req, res) => {
+app.get('/', (req, res) => {
         res.send("hello");
   });
 // Start the server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
-
-
-
-
-
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server is running in port ${PORT}`));
