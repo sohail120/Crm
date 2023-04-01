@@ -4,7 +4,7 @@ const product = require("./api/product");
 
 app.use(express.json({ extended: false }));
 
-app.use("/api/product", product);
+// app.use("/api/product", product);
 
 const handleRecommendation=(triggers,transcription)=>{
     const recommendationScore=triggers?.map((i)=>{
