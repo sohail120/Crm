@@ -39,6 +39,9 @@ app.post('/chat-assistant', (req, res) => {
       res.send(handleRecommendation(triggers,transcription));
 });
 
+app.post('/', (req, res) => {
+        res.send("hello");
+  });
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
