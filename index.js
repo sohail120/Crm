@@ -1,17 +1,10 @@
-// const express = require("express");
-// const app = express();
-
-// app.use(express.json({ extended: false }));
-
-// app.use("/api/product", product);
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const app = express();
-const port = process.env.PORT || 3000;
-
+var cors = require('cors');
+app.use(cors());
 app.use(bodyParser.json());
 
 
@@ -44,6 +37,7 @@ const handleRecommendation=(triggers,transcription)=>{
 
 app.post('/chat-assistant', (req, res) => {
   const { triggers,transcription } = req.body;
+  console.log("transcription",transcription)
       res.send(handleRecommendation(triggers,transcription));
 });
 
