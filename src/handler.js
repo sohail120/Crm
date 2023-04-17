@@ -34,7 +34,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const toNumberOrClientName = requestBody.To;
   const callerId = '+12765829122';
   const twiml = new VoiceResponse();
-  const start = twiml.Start();
+  const start = twiml.start();
   // start.stream(url='wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream');
   start.stream({
     name: 'Example Audio Stream',
