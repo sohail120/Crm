@@ -40,7 +40,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     name: 'Example Audio Stream',
     url: 'wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream',
   });
-  twiml.append(start);
+  // twiml.append(start);
   // If the request to the /voice endpoint is TO your Twilio Number,
   // then it is an incoming call towards your Twilio.Device.
   if (toNumberOrClientName == callerId) {
