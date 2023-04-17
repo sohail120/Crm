@@ -35,7 +35,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const toNumberOrClientName = requestBody.To;
   const callerId = '+12765829122';
   const twiml = new VoiceResponse();
-  const start = new Start();
+  const start = Start();
   start.stream(url='wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream');
   twiml.append(start);
   // If the request to the /voice endpoint is TO your Twilio Number,
