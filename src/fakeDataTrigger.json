@@ -2,8 +2,8 @@
   "triggers": [
     {
       "tags": [
-        "NO I’m not",
-        "what this call is about?",
+        "NO Im not",
+        "what this call is about",
         "is the one that handles that"
       ],
       "recommendations": [
@@ -19,14 +19,14 @@
         "with a customer"
       ],
       "recommendations": [
-        " Do you know when they’ll most likely be available so that I can try back?",
+        "Do you know when they’ll most likely be available so that I can try back?",
         "(the goal here is to figure out when the decision maker will be back so that you can call back at that time and speak to them)"
       ]
     },
     {
       "tags": [
         "can I take your information",
-        " can pass the information along",
+        "can pass the information along",
         "anything like this"
       ],
       "recommendations": [
@@ -45,7 +45,7 @@
       "recommendations": [
         "Ecalls started in 2008, and our job is to help businesses find more customers in all kinds of industries",
         "When a business works with us, they tell us about the customers they want to serve",
-        " Then, we assign an Ecalls helper (called a BDR) to the business. The BDR reaches out to potential customers by making phone calls, sending emails, and using social media sites like LinkedIn"
+        "Then, we assign an Ecalls helper (called a BDR) to the business. The BDR reaches out to potential customers by making phone calls, sending emails, and using social media sites like LinkedIn"
       ]
     },
     {
