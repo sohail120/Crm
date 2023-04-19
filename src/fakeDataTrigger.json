@@ -1,0 +1,60 @@
+{
+  "triggers": [
+    {
+      "tags": [
+        "NO I’m not",
+        "what this call is about?",
+        "is the one that handles that"
+      ],
+      "recommendations": [
+        "Oh okay, that’s no problem, can you direct me to the right person?",
+        "Oh okay, is (name) free right now to take my call?",
+        "Oh, sorry about that, I’m just calling because we have a new way to get you guys new customers, is (owner/decision maker/name) available to take my call?"
+      ]
+    },
+    {
+      "tags": [
+        "NO they are not here",
+        "on the phone, busy",
+        "with a customer"
+      ],
+      "recommendations": [
+        " Do you know when they’ll most likely be available so that I can try back?",
+        "(the goal here is to figure out when the decision maker will be back so that you can call back at that time and speak to them)"
+      ]
+    },
+    {
+      "tags": [
+        "can I take your information",
+        " can pass the information along",
+        "anything like this"
+      ],
+      "recommendations": [
+        "That’s very kind of you, my name is (say your name) and I’m calling from Exclusive Calls and you can have them call me back at 888-484-3515 and just ask for me, thank you have a good rest of your day",
+        "(if you have a direct phone number you can provide your direct phone number)",
+        "You will call some place several times in a span of weeks or months until you speak to the decision maker."
+      ]
+    },
+
+    {
+      "tags": [
+        "Company background",
+        "about  Company",
+        "Company mission"
+      ],
+      "recommendations": [
+        "Ecalls started in 2008, and our job is to help businesses find more customers in all kinds of industries",
+        "When a business works with us, they tell us about the customers they want to serve",
+        " Then, we assign an Ecalls helper (called a BDR) to the business. The BDR reaches out to potential customers by making phone calls, sending emails, and using social media sites like LinkedIn"
+      ]
+    },
+    {
+      "tags": [
+        ""
+      ],
+      "recommendations": [
+        "no recommoodations"
+      ]
+    }
+  ]
+}

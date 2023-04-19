@@ -8,6 +8,7 @@ const nameGenerator = require('../name_generator');
 
 var identity;
 
+
 exports.tokenGenerator = function tokenGenerator() {
   identity = nameGenerator();
 
