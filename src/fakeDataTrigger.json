@@ -2,9 +2,12 @@
   "triggers": [
     {
       "tags": [
-        "NO I’m not",
-        "what this call is about",
-        "is the one that handles that"
+        "NO I’m",
+        "call is about",
+        "is the one ",
+        "that handles that",
+        "what this call",
+        "right person"
       ],
       "recommendations": [
         "Oh okay, that’s no problem, can you direct me to the right person?",
@@ -14,9 +17,12 @@
     },
     {
       "tags": [
-        "NO they are not here",
-        "on the phone, busy",
-        "with a customer"
+        "NO they ",
+        "are not here",
+        "on the phone",
+        "busy",
+        "with ",
+        "customer"
       ],
       "recommendations": [
         "Do you know when they’ll most likely be available so that I can try back?",
@@ -25,9 +31,11 @@
     },
     {
       "tags": [
-        "can I take your information",
-        "can pass the information along",
-        "anything like this"
+        "can I take",
+        "information",
+        "along",
+        "anything like this",
+        "like this"
       ],
       "recommendations": [
         "That’s very kind of you, my name is (say your name) and I’m calling from Exclusive Calls and you can have them call me back at 888-484-3515 and just ask for me, thank you have a good rest of your day",
@@ -35,11 +43,11 @@
         "You will call some place several times in a span of weeks or months until you speak to the decision maker."
       ]
     },
-
     {
       "tags": [
-        "Company background",
-        "about  Company",
+        "Company",
+        "background",
+        "about Company",
         "Company mission"
       ],
       "recommendations": [
