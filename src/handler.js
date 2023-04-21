@@ -38,7 +38,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const start = twiml.start();
   // start.stream(url='wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream');
   start.stream({
-    url: 'wss://ab2f-2401-4900-503a-c3c7-842b-8c9f-ad9f-7283.ngrok-free.app//stream',
+    url: 'wss://ab2f-2401-4900-503a-c3c7-842b-8c9f-ad9f-7283.ngrok-free.app/stream',
   });
   // twiml.append(start);
   // If the request to the /voice endpoint is TO your Twilio Number,
