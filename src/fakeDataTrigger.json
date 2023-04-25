@@ -2,8 +2,8 @@
   "triggers": [
     {
       "tags": [
-        "NO I’m",
-        "call is about",
+        "no I’m",
+        "call",
         "is the one ",
         "that handles that",
         "what this call",
@@ -17,9 +17,9 @@
     },
     {
       "tags": [
-        "NO they ",
+        "no they",
         "are not here",
-        "on the phone",
+        "phone",
         "busy",
         "with ",
         "customer"
@@ -45,10 +45,10 @@
     },
     {
       "tags": [
-        "Company",
+        "company",
         "background",
-        "about Company",
-        "Company mission"
+        "about company",
+        "company mission"
       ],
       "recommendations": [
         "Ecalls started in 2008, and our job is to help businesses find more customers in all kinds of industries",
