@@ -41,21 +41,21 @@ exports.tokenGenerator = function tokenGenerator() {
 exports.voiceResponse = function voiceResponse(requestBody) {
   const toNumberOrClientName = requestBody.To;
   const callerId = '+13613096182';
+  const record = 'record-from-ringing-dual';
   const twiml = new VoiceResponse();
   const start = twiml.start();
-  const record=twiml.record();
+  // const record=twiml.record();
   // start.stream(url='wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream');
   start.stream({
     url: 'wss://34fe-2401-4900-5500-8abb-bca7-4307-27c3-d2b9.in.ngrok.io/stream',
   });
   twiml.append(start);
-  twiml.append(record);
-
+  // twiml.append(record);
 
   // If the request to the /voice endpoint is TO your Twilio Number,
   // then it is an incoming call towards your Twilio.Device.
   if (toNumberOrClientName == callerId) {
-    const dial = twiml.dial();
+    const dial = twiml.dial({record});
 
     // This will connect the caller with your Twilio.Device/client
     dial.client(identity);
@@ -63,7 +63,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     // This is an outgoing call
 
     // set the callerId
-    const dial = twiml.dial({callerId});
+    const dial = twiml.dial(dial, callerId);
 
     // Check if the 'To' parameter is a Phone Number or Client Name
     // in order to use the appropriate TwiML noun
