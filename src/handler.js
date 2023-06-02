@@ -7,19 +7,26 @@ const VoiceGrant = AccessToken.VoiceGrant;
 const nameGenerator = require('../name_generator');
 
 var identity;
-
+// "TwilioAccountDetails": {
+//   "AccountSid": "ACdaf30c4e36cad2da736ae7f50eab74ca",
+//   "AuthToken": "53feb85fa03b3674e2c653f0a4d47580",
+//   "TwimlAppSid": "APa15c2f4762a278513f215c6b0146f4ec",
+//   "CallerId": "+13613096182",
+//   "ApiSid": "SK604946e323a6c3e0f778c37d55bc4a47",
+//   "ApiSecret": "05HMJQEu65hU4h1cyskFqnk5AQvs0XWq"
+// }
 
 exports.tokenGenerator = function tokenGenerator() {
   identity = nameGenerator();
 
   const accessToken = new AccessToken(
-      'AC5fdb27e6f0612e5ea0d9bf6cb5016f98',
-      'SK39fdaa8c2a03200b61af7e631fb4bb50',
-      'bP1afm5VaKagTMUnQ2dZtPekRsW3jbpf'
+      'ACdaf30c4e36cad2da736ae7f50eab74ca',
+      'SK604946e323a6c3e0f778c37d55bc4a47',
+      '05HMJQEu65hU4h1cyskFqnk5AQvs0XWq'
   );
   accessToken.identity = identity;
   const grant = new VoiceGrant({
-    outgoingApplicationSid: 'AP3ca350e1270126444e858c1e13610eee',
+    outgoingApplicationSid: 'APa15c2f4762a278513f215c6b0146f4ec',
     incomingAllow: true,
   });
   accessToken.addGrant(grant);
@@ -33,12 +40,12 @@ exports.tokenGenerator = function tokenGenerator() {
 
 exports.voiceResponse = function voiceResponse(requestBody) {
   const toNumberOrClientName = requestBody.To;
-  const callerId = '+14753488375';
+  const callerId = '+13613096182';
   const twiml = new VoiceResponse();
   const start = twiml.start();
   // start.stream(url='wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream');
   start.stream({
-    url: 'wss://b6ea-2401-4900-1b99-649d-55c5-7974-2067-fa15.in.ngrok.io/stream',
+    url: 'wss://34fe-2401-4900-5500-8abb-bca7-4307-27c3-d2b9.in.ngrok.io/stream',
   });
   // twiml.append(start);
   // If the request to the /voice endpoint is TO your Twilio Number,
