@@ -43,11 +43,15 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const callerId = '+13613096182';
   const twiml = new VoiceResponse();
   const start = twiml.start();
+  const record=twiml.record();
   // start.stream(url='wss://https://545e-2401-4900-52b8-7f33-e07c-c5bb-6a3e-24fd.ngrok-free.app/stream');
   start.stream({
     url: 'wss://34fe-2401-4900-5500-8abb-bca7-4307-27c3-d2b9.in.ngrok.io/stream',
   });
-  // twiml.append(start);
+  twiml.append(start);
+  twiml.append(record);
+
+
   // If the request to the /voice endpoint is TO your Twilio Number,
   // then it is an incoming call towards your Twilio.Device.
   if (toNumberOrClientName == callerId) {
