@@ -39,12 +39,11 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const callerId = TWILIO_CALLER_ID;
   const record = 'record-from-answer-dual';
   const twiml = new VoiceResponse();
-  const start = response.start();
+  const start = twiml.start();
   start.stream({
-      name: 'Example Audio Stream',
-      url: 'wss://3f7e-2401-4900-5309-a9d9-1d73-8781-37e7-67b9.ngrok-free.app/stream'
+    url: 'wss://3f7e-2401-4900-5309-a9d9-1d73-8781-37e7-67b9.ngrok-free.app/stream',
   });
-  twiml.append(start)
+  twiml.append(start);
   // If the request to the /voice endpoint is TO your Twilio Number,
   // then it is an incoming call towards your Twilio.Device.
   if (toNumberOrClientName == callerId) {
