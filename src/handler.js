@@ -67,7 +67,6 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     // set the callerId
     const dial = twiml.dial(dial, callerId);
 
-    // Check if the 'To' parameter is a Phone Number or Client Name
     // in order to use the appropriate TwiML noun
     const attr = isAValidPhoneNumber(toNumberOrClientName) ?
       'number' :
