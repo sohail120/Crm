@@ -53,7 +53,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     const dial = twiml.dial({record});
     dial.client(identity);
   } else if (requestBody.To) {
-    const dial = twiml.dial(dial, callerId, record);
+    const dial = twiml.dial(dial, callerId);
     const attr = isAValidPhoneNumber(toNumberOrClientName) ?
       'number' :
       'client';
