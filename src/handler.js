@@ -39,22 +39,22 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const callerId = TWILIO_CALLER_ID;
   const record = 'record-from-answer-dual';
   const twiml = new VoiceResponse();
-  // const start = twiml.start();
-  // start.stream({
-  //   url: 'wss://3f7e-2401-4900-5309-a9d9-1d73-8781-37e7-67b9.ngrok-free.app/stream',
-  // });
-  // twiml.append(start);
-  // If the request to the /voice endpoint is TO your Twilio Number,
-  // then it is an incoming call towards your Twilio.Device.
+  const start = twiml.start();
   if (toNumberOrClientName == callerId) {
+    start.stream({
+      url: 'wss://08da-2401-4900-1b10-8b32-e463-1946-8d32-fb1b.ngrok-free.app/stream',
+      track: 'inbound_track',
+    });
     const dial = twiml.dial({record});
 
     // This will connect the caller with your Twilio.Device/client
     dial.client(identity);
   } else if (requestBody.To) {
-    // This is an outgoing call
+    start.stream({
+      url: 'wss://08da-2401-4900-1b10-8b32-e463-1946-8d32-fb1b.ngrok-free.app/stream',
+      track: 'outbound_track',
+    });
 
-    // set the callerId
     const dial = twiml.dial({callerId, record});
 
     // Check if the 'To' parameter is a Phone Number or Client Name
