@@ -43,7 +43,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const start = twiml.start();
   if (toNumberOrClientName == callerId) {
     start.stream({
-      url: 'wss://08da-2401-4900-1b10-8b32-e463-1946-8d32-fb1b.ngrok-free.app/stream',
+      url: 'wss://www.contactaholic.com:5000/stream',
       track: 'inbound_track',
     });
     const dial = twiml.dial({record});
@@ -52,7 +52,7 @@ exports.voiceResponse = function voiceResponse(requestBody) {
     dial.client(identity);
   } else if (requestBody.To) {
     start.stream({
-      url: 'wss://08da-2401-4900-1b10-8b32-e463-1946-8d32-fb1b.ngrok-free.app/stream',
+      url: 'wss://www.contactaholic.com:5000/stream',
       track: 'outbound_track',
     });
 
