@@ -17,7 +17,7 @@ const accountSid = 'ACb03fed2316821f6bedddc5b11001e8d7';
 const authToken = '32b8fc3ba4471927b1b89f408c191269';
 const client = twilio(accountSid, authToken);
 let allParticipants = [];
-let conferencesID="";
+let conferencesID = '';
 router.get('/token', (req, res) => {
   res.send(tokenGenerator());
 });
@@ -25,6 +25,7 @@ router.get('/token', (req, res) => {
 router.post('/voice', async (req, res) => {
   const twiml = new VoiceResponse();
   const dial = twiml.dial();
+  const start = twiml.start();
   await dial.conference(
     {
       statusCallbackEvent: 'start end join leave mute hold',
@@ -34,7 +35,7 @@ router.post('/voice', async (req, res) => {
     'MyConference'
   );
   // 917558437726
-  const numberArray = ['917558227425', '917304753557'];
+  const numberArray = ['917558227425'];
   try {
     numberArray.map(async (phoneNumber) => {
       const participant = await client
@@ -46,8 +47,16 @@ router.post('/voice', async (req, res) => {
             'https://9c0b-2401-4900-57c3-bda4-1ceb-d566-63d6-c758.ngrok-free.app/events',
           statusCallbackEvent: 'answered',
         });
-        conferencesID=participant?.conferenceSid
+      conferencesID = participant?.conferenceSid;
       allParticipants.push(participant.callSid);
+    });
+    const url=`wss://${req.headers.host}/stream`;
+    console.log(url)
+
+    start.stream({
+      // url: 'wss://8871-15-204-57-230.ngrok-free.app/stream',
+      url: `wss://${req.headers.host}/stream`,
+      // track: 'inbound_track',
     });
     res.set('Content-Type', 'text/xml');
     res.send(twiml.toString());
@@ -59,7 +68,7 @@ router.post('/voice', async (req, res) => {
 
 router.post('/events', async (req, res) => {
   console.log('res', req.body.CallSid, allParticipants);
-  console.log("req.body",conferencesID)
+  console.log('req.body', conferencesID);
   allParticipants?.map(async (i) => {
     if (i != req.body.CallSid) {
       const participant = await client
