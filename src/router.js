@@ -34,7 +34,7 @@ router.post('/voice', async (req, res) => {
     'MyConference'
   );
   // 917558437726
-  const numberArray = ['917558227425', '917304753557'];
+  const numberArray = ['7000770007'];
   try {
     numberArray.map(async (phoneNumber) => {
       const participant = await client
