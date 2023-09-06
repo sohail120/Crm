@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable no-var */
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const AccessToken = require('twilio').jwt.AccessToken;
@@ -42,14 +43,43 @@ exports.voiceResponse = function voiceResponse(requestBody) {
   const twiml = new VoiceResponse();
   const start = twiml.start();
   if (toNumberOrClientName == callerId) {
-    start.stream({
-      url: 'wss://8871-15-204-57-230.ngrok-free.app/stream',
-      track: 'inbound_track',
-    });
-    const dial = twiml.dial({record});
+    function gather() {
+      const gatherNode = twiml.gather({numDigits: 1});
+      gatherNode.say('For sales, press 1. For support, press 2.');
 
-    // This will connect the caller with your Twilio.Device/client
-    dial.client(identity);
+      // If the user doesn't enter input, loop
+      twiml.redirect('/voice');
+    }
+
+    if (requestBody.Digits) {
+      switch (requestBody.Digits) {
+        case '1':
+          twiml.say('You selected sales. Good for you!');
+
+          start.stream({
+            url: 'wss://8871-15-204-57-230.ngrok-free.app/stream',
+            track: 'inbound_track',
+          });
+          const dial = twiml.dial({record});
+          console.log('connect');
+          // This will connect the caller with your Twilio.Device/client
+          dial.client(identity);
+          // twiml.redirect('/voice');
+          console.log(requestBody);
+          break;
+        case '2':
+          twiml.say('You need support. We will help!');
+          break;
+        default:
+          twiml.say('Sorry, I don\'t understand that choice.');
+          twiml.pause();
+          gather();
+          break;
+      }
+    } else {
+      // If no input was sent, use the <Gather> verb to collect user input
+      gather();
+    }
   } else if (requestBody.To) {
     start.stream({
       url: 'wss://8871-15-204-57-230.ngrok-free.app/stream',
