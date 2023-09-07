@@ -25,16 +25,26 @@ router.get('/token', (req, res) => {
 router.post('/voice', async (req, res) => {
   const twiml = new VoiceResponse();
   const dial = twiml.dial();
-  await dial.conference(
+  const start = twiml.start();
+  await start.stream({
+    name: 'Example Audio Stream',
+    url: 'wss://155f-2401-4900-503e-3f1b-2cdb-4991-f0b2-3dc1.ngrok-free.app/stream',
+  });
+  const data=await dial.conference(
     {
       statusCallbackEvent: 'start end join leave mute hold',
-      statusCallback: 'YOUR_STATUS_CALLBACK_URL',
+      // statusCallback: 'YOUR_STATUS_CALLBACK_URL',
       endConferenceOnExit: true,
+
     },
     'MyConference'
   );
+  // client.conferences('MyConference').recordingStatusCallback('https://155f-2401-4900-503e-3f1b-2cdb-4991-f0b2-3dc1.ngrok-free.app/events')
+      // .streams
+      // .create({url: 'wss://155f-2401-4900-503e-3f1b-2cdb-4991-f0b2-3dc1.ngrok-free.app/stream'})
+      // .then(stream => console.log(stream.sid));
   // 917558437726
-  const numberArray = ['917558227425', '917304753557'];
+  const numberArray = ['917558227425'];
   try {
     numberArray.map(async (phoneNumber) => {
       const participant = await client
@@ -44,6 +54,8 @@ router.post('/voice', async (req, res) => {
           from: '+15418713044',
           statusCallback:
             'https://9c0b-2401-4900-57c3-bda4-1ceb-d566-63d6-c758.ngrok-free.app/events',
+            recordingStatusCallback:
+            'https://155f-2401-4900-503e-3f1b-2cdb-4991-f0b2-3dc1.ngrok-free.app/events',
           statusCallbackEvent: 'answered',
         });
         conferencesID=participant?.conferenceSid
@@ -60,15 +72,15 @@ router.post('/voice', async (req, res) => {
 router.post('/events', async (req, res) => {
   console.log('res', req.body.CallSid, allParticipants);
   console.log("req.body",conferencesID)
-  allParticipants?.map(async (i) => {
-    if (i != req.body.CallSid) {
-      const participant = await client
-        .conferences(conferencesID)
-        .participants(i)
-        .remove();
-    }
-    return '';
-  });
+  // allParticipants?.map(async (i) => {
+  //   if (i != req.body.CallSid) {
+  //     const participant = await client
+  //       .conferences(conferencesID)
+  //       .participants(i)
+  //       .remove();
+  //   }
+  //   return '';
+  // });
 });
 
 module.exports = router;
